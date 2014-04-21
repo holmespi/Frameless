@@ -39,13 +39,21 @@ $cols16: (16 * ($column + $gutter) - $gutter) / $em;
 
 
 //
-// Column-widths in a function, in ems
-//
+// Column-widths in a mixin, in ems
+// Use like @include width_mixin(10)
 
-@mixin width ($cols:1) {
+@mixin width_mixin ($cols:1) {
 	width: ($cols * ($column + $gutter) - $gutter) / $em;
 }
 
+
+//
+// Column-widths in a function, in ems (More Versatile)
+// Use like width: @width(10)
+
+@function width($cols{
+  @return ($cols * ($column + $gutter) - $gutter) / $em;
+}
 
 /*
 	Margin, padding, and border resets
